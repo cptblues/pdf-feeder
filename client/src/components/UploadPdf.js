@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import PdfViewer from './PdfViewer';
+import './UploadPdf.css';
 
 const UploadPdf = () => {
   const [file, setFile] = useState(null);
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const [pdfUrl, setPdfUrl] = useState(null);
 
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
@@ -41,6 +44,9 @@ const UploadPdf = () => {
 
       setSuccess('PDF uploadé avec succès !');
       setFile(null);
+      // Construire l'URL du PDF à partir de la réponse
+      const filename = response.data.pdf.filename;
+      setPdfUrl(`http://localhost:5000/uploads/pdfs/${filename}`);
     } catch (err) {
       setError(err.response?.data?.error || 'Erreur lors de l\'upload du PDF');
     } finally {
@@ -70,6 +76,13 @@ const UploadPdf = () => {
           {uploading ? 'Upload en cours...' : 'Uploader le PDF'}
         </button>
       </form>
+      
+      {pdfUrl && (
+        <div className="pdf-preview">
+          <h3>Prévisualisation du PDF</h3>
+          <PdfViewer pdfUrl={pdfUrl} />
+        </div>
+      )}
     </div>
   );
 };

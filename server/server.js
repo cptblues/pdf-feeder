@@ -3,8 +3,8 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const upload = require('./middleware/upload');
 const pdfController = require('./controllers/pdfController');
+const path = require('path');
 require('dotenv').config();
-
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -12,6 +12,9 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 app.use(cors());
 app.use(express.json());
+
+// Servir les fichiers statiques depuis le dossier uploads
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Routes de base pour tester le serveur
 app.get('/', (req, res) => {

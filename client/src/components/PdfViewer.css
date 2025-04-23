@@ -1,0 +1,87 @@
+.pdf-viewer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.pdf-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.pdf-controls button {
+  padding: 0.5rem 1rem;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pdf-controls button:hover {
+  background-color: #45a049;
+}
+
+.pdf-controls button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.pdf-controls span {
+  font-size: 1rem;
+  color: #333;
+}
+
+.pdf-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  padding: 1rem;
+  min-height: 500px;
+}
+
+/* Styles pour le conteneur du PDF */
+.react-pdf__Document {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.react-pdf__Page {
+  margin: 1rem 0;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles pour les messages de chargement et d'erreur */
+.pdf-viewer div[role="alert"] {
+  padding: 1rem;
+  background-color: #ffebee;
+  color: #c62828;
+  border-radius: 4px;
+  margin: 1rem 0;
+}
+
+.pdf-viewer div[role="status"] {
+  padding: 1rem;
+  background-color: #e3f2fd;
+  color: #1565c0;
+  border-radius: 4px;
+  margin: 1rem 0;
+} 
