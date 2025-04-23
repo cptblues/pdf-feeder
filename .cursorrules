@@ -1,0 +1,90 @@
+# .cursorrules pour le Projet d'Application Web PDF
+
+Ce fichier définit les règles et directives pour le développement de l'application web avec Cursor.ai. Il assure la cohérence, la qualité et le respect des bonnes pratiques tout au long du projet.
+
+---
+
+## 1. Général
+
+- **Contexte** : Consultez toujours le fichier `progress.md` avant de commencer une nouvelle étape pour comprendre l'état actuel du projet.
+- **Étapes** : Suivez scrupuleusement les étapes définies dans `implementation-plan.md`. Chaque étape doit être complétée dans l'ordre et mise à jour dans `progress.md`.
+- **Mises à jour** : Après chaque étape, mettez à jour `progress.md` avec les détails de l'implémentation et les résultats des tests.
+- **Communication** : Utilisez des messages de commit clairs et descriptifs pour chaque modification apportée au code.
+
+---
+
+## 2. Code
+
+### 2.1 Conventions de Nommage
+- **Fichiers et Dossiers** : noms en minuscules avec tirets (ex. `upload-pdf.js`).
+- **Variables et Fonctions** : camelCase (ex. `uploadFile`, `getPdfPages`).
+- **Composants React** : PascalCase (ex. `PdfViewer`, `FieldEditor`).
+- **Constantes** : MAJUSCULES avec underscores (ex. `MAX_FILE_SIZE`).
+
+### 2.2 Style de Code
+- **Indentation** : 2 espaces.
+- **Guillemets** : Utilisez des guillemets simples pour les chaînes de caractères.
+- **Points-virgules** : Utilisez-les à la fin de chaque instruction.
+- **Commentaires** : Ajoutez des commentaires explicatifs pour les sections complexes du code.
+
+### 2.3 Gestion des Erreurs
+- **Backend** : Utilisez des try/catch pour les opérations asynchrones et renvoyez des erreurs HTTP appropriées.
+- **Frontend** : Gérez les erreurs de manière à informer l'utilisateur sans exposer les détails techniques.
+
+### 2.4 Sécurité
+- **Validation des Entrées** : Validez toutes les entrées utilisateur côté serveur.
+- **Fichiers Uploadés** : Vérifiez le type et la taille des fichiers PDF uploadés.
+- **Authentification** : Implémentez une authentification si nécessaire (optionnel pour ce projet).
+
+---
+
+## 3. Tests
+
+- **Tests Unitaires** : Créez des tests unitaires pour chaque nouvelle fonction ou composant.
+- **Tests d'Intégration** : Créez des tests d'intégration pour les interactions entre les composants (ex. upload et stockage).
+- **Exécution des Tests** : À la fin de chaque étape, exécutez tous les tests existants pour garantir qu'aucune régression n'a été introduite.
+- **Outils** : Utilisez Jest pour les tests backend et frontend, avec React Testing Library pour les composants React.
+
+---
+
+## 4. Documentation
+
+- **Code** : Documentez le code avec des commentaires là où c'est nécessaire, en particulier pour les logiques complexes.
+- **API** : Documentez les routes de l'API avec des descriptions des endpoints, des paramètres et des réponses.
+- **Fichiers Markdown** : Maintenez à jour `progress.md` et tout autre fichier de documentation pertinent.
+
+---
+
+## 5. Déploiement
+
+- **Environnement** : Configurez des variables d'environnement pour les clés API, les URLs de base de données, etc.
+- **Serveur** : Utilisez un service comme Heroku, AWS ou Vercel pour déployer l'application.
+- **Tests Post-Déploiement** : Après le déploiement, effectuez des tests manuels pour vérifier le bon fonctionnement en production.
+
+---
+
+## 6. Performance
+
+- **Optimisation des PDF** : Assurez-vous que le rendu des PDF est optimisé pour ne pas surcharger le frontend.
+- **Requêtes Base de Données** : Utilisez des index dans MongoDB pour les requêtes fréquentes.
+- **Cache** : Envisagez d'utiliser un cache pour les données fréquemment accédées si nécessaire.
+
+---
+
+## 7. Adaptabilité
+
+- **Flexibilité** : Les règles doivent être suivies, mais peuvent être ajustées en fonction des retours ou des nouveaux besoins.
+- **Évolutivité** : Concevez le code de manière modulaire pour faciliter l'ajout de nouvelles fonctionnalités (ex. nouveaux types de champs).
+
+---
+
+## 8. Outils et Bibliothèques
+
+- **Backend** : Node.js, Express.js, Multer, PDF-lib, Mongoose.
+- **Frontend** : React.js, pdf.js, Axios pour les requêtes API.
+- **Base de Données** : MongoDB.
+- **Tests** : Jest, React Testing Library.
+
+---
+
+Ces règles sont conçues pour garantir que le développement de votre application web se déroule de manière structurée, cohérente et efficace. Elles doivent être consultées régulièrement et mises à jour si nécessaire pour refléter l'évolution du projet.
