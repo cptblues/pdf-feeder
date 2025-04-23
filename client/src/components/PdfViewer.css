@@ -42,6 +42,14 @@
   cursor: not-allowed;
 }
 
+.pdf-controls button.active {
+  background-color: #2196F3;
+}
+
+.pdf-controls button.active:hover {
+  background-color: #1976D2;
+}
+
 .pdf-controls span {
   font-size: 1rem;
   color: #333;
@@ -55,6 +63,19 @@
   border-radius: 4px;
   padding: 1rem;
   min-height: 500px;
+  position: relative;
+}
+
+.page-container {
+  position: relative;
+  display: inline-block;
+}
+
+.field {
+  position: absolute;
+  border: 2px solid #2196F3;
+  background-color: rgba(33, 150, 243, 0.1);
+  pointer-events: none;
 }
 
 /* Styles pour le conteneur du PDF */

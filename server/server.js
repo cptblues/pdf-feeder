@@ -3,6 +3,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const upload = require('./middleware/upload');
 const pdfController = require('./controllers/pdfController');
+const fieldController = require('./controllers/fieldController');
 const path = require('path');
 require('dotenv').config();
 
@@ -21,8 +22,14 @@ app.get('/', (req, res) => {
   res.json({ message: 'Serveur PDF Feeder en cours d\'exécution' });
 });
 
-// Route pour l'upload des PDF
+// Routes pour les PDF
 app.post('/api/upload', upload.single('pdf'), pdfController.uploadPdf);
+
+// Routes pour les champs
+app.post('/api/pdfs/:pdfId/fields', fieldController.addField);
+app.get('/api/pdfs/:pdfId/fields', fieldController.getFields);
+app.put('/api/fields/:fieldId', fieldController.updateField);
+app.delete('/api/fields/:fieldId', fieldController.deleteField);
 
 // Connexion à MongoDB
 mongoose.connect('mongodb://localhost:27017/pdf-feeder', {

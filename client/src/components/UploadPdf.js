@@ -9,6 +9,7 @@ const UploadPdf = () => {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const [pdfUrl, setPdfUrl] = useState(null);
+  const [pdfId, setPdfId] = useState(null);
 
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
@@ -47,6 +48,7 @@ const UploadPdf = () => {
       // Construire l'URL du PDF à partir de la réponse
       const filename = response.data.pdf.filename;
       setPdfUrl(`http://localhost:5000/uploads/pdfs/${filename}`);
+      setPdfId(response.data.pdf.id);
     } catch (err) {
       setError(err.response?.data?.error || 'Erreur lors de l\'upload du PDF');
     } finally {
@@ -80,7 +82,7 @@ const UploadPdf = () => {
       {pdfUrl && (
         <div className="pdf-preview">
           <h3>Prévisualisation du PDF</h3>
-          <PdfViewer pdfUrl={pdfUrl} />
+          <PdfViewer pdfUrl={pdfUrl} pdfId={pdfId} />
         </div>
       )}
     </div>
